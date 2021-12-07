@@ -1,0 +1,44 @@
+{
+    "update_id": 479356702,
+    "message": {
+        "message_id": 8,
+        "from": {
+            "id": 78895917,
+            "is_bot": false,
+            "first_name": "Erni",
+            "username": "erni93"
+        },
+        "chat": {
+            "id": -693863188,
+            "title": "testA",
+            "type": "group",
+            "all_members_are_administrators": true
+        },
+        "date": 1638827558,
+        "reply_to_message": {
+            "message_id": 7,
+            "from": {
+                "id": 78895917,
+                "is_bot": false,
+                "first_name": "Erni",
+                "username": "erni93"
+            },
+            "chat": {
+                "id": -693863188,
+                "title": "testA",
+                "type": "group",
+                "all_members_are_administrators": true
+            },
+            "date": 1638827550,
+            "text": "testtttt"
+        },
+        "text": "a ver este @SyncEngineerBot",
+        "entities": [
+            {
+                "offset": 11,
+                "length": 16,
+                "type": "mention"
+            }
+        ]
+    }
+}

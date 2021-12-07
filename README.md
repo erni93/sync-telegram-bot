@@ -1,2 +1,4 @@
-# sync-telegram-bot
+# Sync-telegram-bot
 Sync messages between telegram channels
+
+
