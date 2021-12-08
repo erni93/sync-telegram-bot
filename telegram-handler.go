@@ -10,10 +10,10 @@ import (
 )
 
 type TelegramWebHook struct {
-	ProcessedUpdates *ProcessedUpdates
-	GroupsWhiteList  []int
-	BotName          string
-	FordwardApiUrl   string
+	ListenPort      string
+	GroupsWhiteList []int
+	BotName         string
+	FordwardApiUrl  string
 }
 
 func (t *TelegramWebHook) isWhiteListed(id int) bool {
@@ -36,11 +36,6 @@ func (t *TelegramWebHook) Handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	log.Printf("%d - Input: %s", update.Id, update)
-	if t.ProcessedUpdates.exists(update.Id) {
-		log.Printf("%d - Message already processed", update.Id)
-		return
-	}
-	t.ProcessedUpdates.add(update.Id)
 	if update.Message == nil {
 		log.Printf("%d - Message is empty", update.Id)
 		return
