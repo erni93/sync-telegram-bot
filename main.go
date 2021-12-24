@@ -46,7 +46,7 @@ func buildTelegramWebHook() (*TelegramWebHook, error) {
 func existsDefaultParameters(parameters ...string) error {
 	for _, parameter := range parameters {
 		if parameter == "" {
-			return errors.New("Some parameters are empty, Add --help for more info")
+			return errors.New("some parameters are empty, add --help for more info")
 		}
 	}
 	return nil
@@ -64,5 +64,5 @@ func splitWhiteList(groupsWhiteList string) ([]int, error) {
 	if len(ids) > 0 {
 		return ids, nil
 	}
-	return nil, errors.New("Invalid whiteList format")
+	return nil, errors.New("invalid whiteList format")
 }
