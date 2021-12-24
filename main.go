@@ -19,13 +19,14 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/", telegramWebHook.Handler).Methods("POST")
 	http.Handle("/", router)
+	log.Printf("Application listening on port %s", telegramWebHook.ListenPort)
 	log.Fatal(http.ListenAndServe(":"+telegramWebHook.ListenPort, router))
 }
 
 func buildTelegramWebHook() (*TelegramWebHook, error) {
 	port := flag.String("port", "8222", "Application port")
-	botName := flag.String("botName", "", "Bot name, example @SyncEngineerBot")
-	groupsWhiteList := flag.String("whiteList", "", "Groups white list separated by comma, example -1001338476919,-1001548985922")
+	botName := flag.String("botname", "", "Bot name, example @SyncEngineerBot")
+	groupsWhiteList := flag.String("whitelist", "", "Groups white list separated by comma, example -1001338476919,-1001548985922")
 	token := flag.String("token", "", "Telegram token, for more info visit https://core.telegram.org/bots#6-botfather")
 	flag.Parse()
 	if err := hasEmptyParameters(*botName, *groupsWhiteList, *token); err != nil {
