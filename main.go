@@ -28,7 +28,7 @@ func buildTelegramWebHook() (*TelegramWebHook, error) {
 	groupsWhiteList := flag.String("whiteList", "", "Groups white list separated by comma, example -1001338476919,-1001548985922")
 	token := flag.String("token", "", "Telegram token, for more info visit https://core.telegram.org/bots#6-botfather")
 	flag.Parse()
-	if err := existsDefaultParameters(*botName, *groupsWhiteList, *token); err != nil {
+	if err := hasEmptyParameters(*botName, *groupsWhiteList, *token); err != nil {
 		return nil, err
 	}
 	groups, err := splitWhiteList(*groupsWhiteList)
@@ -43,7 +43,7 @@ func buildTelegramWebHook() (*TelegramWebHook, error) {
 	}, nil
 }
 
-func existsDefaultParameters(parameters ...string) error {
+func hasEmptyParameters(parameters ...string) error {
 	for _, parameter := range parameters {
 		if parameter == "" {
 			return errors.New("some parameters are empty, add --help for more info")
