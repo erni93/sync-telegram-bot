@@ -56,7 +56,7 @@ func hasEmptyParameters(parameters ...string) error {
 func splitWhiteList(groupsWhiteList string) ([]int, error) {
 	var ids []int
 	for _, item := range strings.Split(groupsWhiteList, ",") {
-		id, err := strconv.ParseInt(item, 10, 32)
+		id, err := strconv.ParseInt(item, 10, 64)
 		if err != nil {
 			return nil, err
 		}
